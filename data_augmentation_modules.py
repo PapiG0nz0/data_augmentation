@@ -174,11 +174,11 @@ def total_random(input_path):
                     index = index + 1
     print("--- %s segundos en procesar #%i imagenes ---" % ((time.perf_counter() - start_time), count))
 
-# random_brightness(input_path)
-# random_contrast(input_path)
-# flip_left_right(input_path)
-# up_down(input_path)
-# random_hue(input_path)
-# random_jpeg_quality(input_path)
-# random_saturation(input_path)
-# total_random(input_path)
+# random_brightness(input_path) 1 
+# random_contrast(input_path) 2 
+# flip_left_right(input_path) 3
+# up_down(input_path) 4 
+# random_hue(input_path) 5
+# random_jpeg_quality(input_path) 6
+# random_saturation(input_path) 7
+# total_random(input_path) 8
