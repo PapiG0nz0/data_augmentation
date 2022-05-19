@@ -93,7 +93,7 @@ def flip_left_right(input_path, output_path, class_name):
     str_template_time = (str(exec_time)+" segundos en procesar #"+str(count)+" imagenes")
     return str_template_time
 
-def up_down(input_path):
+def up_down(input_path, output_path, class_name):
     start = time.time()
     count = sum(len(files) for _, _, files in os.walk(input_path))
     index = count
@@ -103,14 +103,14 @@ def up_down(input_path):
                     print(seed)
                     img = Image.open(input_path+images)
                     img_flip_up_down = tf.image.flip_up_down(img)
-                    save_img(img_flip_up_down, index, output_path)
+                    save_img(img_flip_up_down, index, output_path, class_name)
                     index = index + 1
     end = time.time()
     exec_time = end-start
     str_template_time = (str(exec_time)+" segundos en procesar #"+str(count)+" imagenes")
     return str_template_time
 
-def random_hue(input_path, output_path):
+def random_hue(input_path, output_path, class_name):
     start = time.time()
     count = sum(len(files) for _, _, files in os.walk(input_path))
     index = count
@@ -120,14 +120,14 @@ def random_hue(input_path, output_path):
                     print(seed)
                     img = Image.open(input_path+images)
                     img_r_hue = tf.image.stateless_random_hue(img, max_delta=0.4, seed=seed)
-                    save_img(img_r_hue, index, output_path)
+                    save_img(img_r_hue, index, output_path, class_name)
                     index = index + 1
     end = time.time()
     exec_time = end-start
     str_template_time = (str(exec_time)+" segundos en procesar #"+str(count)+" imagenes")
     return str_template_time
 
-def random_jpeg_quality(input_path):
+def random_jpeg_quality(input_path, output_path, class_name):
     start = time.time()
     count = sum(len(files) for _, _, files in os.walk(input_path))
     index = count
@@ -137,14 +137,14 @@ def random_jpeg_quality(input_path):
                     print(seed)
                     img = Image.open(input_path+images)
                     img_r_jpeg_quality = tf.image.stateless_random_jpeg_quality(img, 10, 75, seed=seed)
-                    save_img(img_r_jpeg_quality, index, output_path)
+                    save_img(img_r_jpeg_quality, index, output_path, class_name)
                     index = index + 1
     end = time.time()
     exec_time = end-start
     str_template_time = (str(exec_time)+" segundos en procesar #"+str(count)+" imagenes")
     return str_template_time
 
-def random_saturation(input_path):
+def random_saturation(input_path, output_path, class_name):
     start = time.time()
     count = sum(len(files) for _, _, files in os.walk(input_path))
     index = count
@@ -154,14 +154,14 @@ def random_saturation(input_path):
                     print(seed)
                     img = Image.open(input_path+images)
                     img_r_saturation = tf.image.stateless_random_saturation(img, lower= 0.1, upper=1, seed=seed)
-                    save_img(img_r_saturation, index, output_path)
+                    save_img(img_r_saturation, index, output_path, class_name)
                     index = index + 1
     end = time.time()
     exec_time = end-start
     str_template_time = (str(exec_time)+" segundos en procesar #"+str(count)+" imagenes")
     return str_template_time
 
-def total_random(input_path):
+def total_random(input_path, output_path, class_name):
     start = time.time()
     transform = A.Compose([
         A.RandomRotate90(),
@@ -197,7 +197,7 @@ def total_random(input_path):
                     print(seed)
                     image = np.array(Image.open(input_path+images))
                     augmented_image = transform(image=image)['image']
-                    save_img(augmented_image, index, output_path)
+                    save_img(augmented_image, index, output_path, class_name)
                     index = index + 1
     end = time.time()
     exec_time = end-start

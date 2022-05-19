@@ -165,6 +165,11 @@ class Ui_MainWindow(object):
         self.btn_brightness.clicked.connect(self.pushButton_brightness)
         self.btn_contrast.clicked.connect(self.pushButton_contrast)
         self.btn_flip_left_right.clicked.connect(self.pushButton_flip_left_right)
+        self.btn_up_down.clicked.connect(self.pushButton_up_down)
+        self.btn_hue.clicked.connect(self.pushButton_random_hue)
+        self.btn_quality.clicked.connect(self.pushButton_jpeg_quality)
+        self.btn_saturation.clicked.connect(self.pushButton_saturation)
+        self.btn_random.clicked.connect(self.pushButton_random)
         
         
     def saveClassName(self):
@@ -213,7 +218,40 @@ class Ui_MainWindow(object):
         self.logs.append('------------------------------------------------------------')
         self.logs.append(temp) 
     
+    def pushButton_up_down(self):
+        class_name = self.class_name_ui
+        temp = up_down(self.folder_input_path, self.folder_output_path, class_name)
+        print(temp)
+        self.logs.append('------------------------------------------------------------')
+        self.logs.append(temp)
+     
+    def pushButton_random_hue(self):
+        class_name = self.class_name_ui
+        temp = random_hue(self.folder_input_path, self.folder_output_path, class_name)
+        print(temp)
+        self.logs.append('------------------------------------------------------------')
+        self.logs.append(temp)
     
+    def pushButton_jpeg_quality(self):
+        class_name = self.class_name_ui
+        temp = random_jpeg_quality(self.folder_input_path, self.folder_output_path, class_name)
+        print(temp)
+        self.logs.append('------------------------------------------------------------')
+        self.logs.append(temp)    
+    
+    def pushButton_saturation(self):
+        class_name = self.class_name_ui
+        temp = random_saturation(self.folder_input_path, self.folder_output_path, class_name)
+        print(temp)
+        self.logs.append('------------------------------------------------------------')
+        self.logs.append(temp)     
+
+    def pushButton_random(self):
+        temp = total_random(self.folder_input_path, self.folder_output_path, class_name = self.class_name_ui)
+        print(temp)
+        self.logs.append('------------------------------------------------------------')
+        self.logs.append(temp)
+        
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
