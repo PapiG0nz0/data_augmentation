@@ -18,14 +18,19 @@ import data_augmentation_modules
 import tensorflow as tf
 import timeit
 
+
+
 class Ui_MainWindow(object):
+    
+    class_name_ui = 'Default'
+    
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 700)
+        MainWindow.resize(984, 719)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.btn_input_path = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_input_path.setGeometry(QtCore.QRect(610, 520, 171, 41))
+        self.btn_input_path.setGeometry(QtCore.QRect(600, 560, 171, 41))
         font = QtGui.QFont()
         font.setPointSize(13)
         font.setBold(False)
@@ -40,7 +45,7 @@ class Ui_MainWindow(object):
         self.current_path.setFont(font)
         self.current_path.setObjectName("current_path")
         self.btn_output_path = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_output_path.setGeometry(QtCore.QRect(610, 570, 171, 41))
+        self.btn_output_path.setGeometry(QtCore.QRect(600, 610, 171, 41))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.btn_output_path.setFont(font)
@@ -52,68 +57,77 @@ class Ui_MainWindow(object):
         self.output_path.setFont(font)
         self.output_path.setObjectName("output_path")
         self.btn_brightness = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_brightness.setGeometry(QtCore.QRect(10, 520, 121, 41))
+        self.btn_brightness.setGeometry(QtCore.QRect(10, 560, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btn_brightness.setFont(font)
         self.btn_brightness.setObjectName("btn_brightness")
         self.btn_contrast = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_contrast.setGeometry(QtCore.QRect(160, 520, 121, 41))
+        self.btn_contrast.setGeometry(QtCore.QRect(160, 560, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btn_contrast.setFont(font)
         self.btn_contrast.setObjectName("btn_contrast")
         self.btn_flip_left_right = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_flip_left_right.setGeometry(QtCore.QRect(310, 520, 121, 41))
+        self.btn_flip_left_right.setGeometry(QtCore.QRect(310, 560, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btn_flip_left_right.setFont(font)
         self.btn_flip_left_right.setObjectName("btn_flip_left_right")
         self.btn_up_down = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_up_down.setGeometry(QtCore.QRect(10, 590, 121, 41))
+        self.btn_up_down.setGeometry(QtCore.QRect(10, 630, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btn_up_down.setFont(font)
         self.btn_up_down.setObjectName("btn_up_down")
         self.btn_quality = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_quality.setGeometry(QtCore.QRect(310, 590, 121, 41))
+        self.btn_quality.setGeometry(QtCore.QRect(310, 630, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btn_quality.setFont(font)
         self.btn_quality.setObjectName("btn_quality")
         self.btn_hue = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_hue.setGeometry(QtCore.QRect(160, 590, 121, 41))
+        self.btn_hue.setGeometry(QtCore.QRect(160, 630, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btn_hue.setFont(font)
         self.btn_hue.setObjectName("btn_hue")
         self.btn_saturation = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_saturation.setGeometry(QtCore.QRect(460, 520, 121, 41))
+        self.btn_saturation.setGeometry(QtCore.QRect(460, 560, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btn_saturation.setFont(font)
         self.btn_saturation.setObjectName("btn_saturation")
         self.btn_random = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_random.setGeometry(QtCore.QRect(460, 590, 121, 41))
+        self.btn_random.setGeometry(QtCore.QRect(460, 630, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btn_random.setFont(font)
         self.btn_random.setObjectName("btn_random")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(10, 90, 201, 16))
+        self.label.setGeometry(QtCore.QRect(10, 130, 201, 16))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.logs = QtWidgets.QTextBrowser(self.centralwidget)
-        self.logs.setGeometry(QtCore.QRect(10, 110, 781, 401))
+        self.logs.setGeometry(QtCore.QRect(10, 150, 911, 401))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.logs.setFont(font)
         self.logs.setObjectName("logs")
+        self.class_input = QtWidgets.QLineEdit(self.centralwidget)
+        self.class_input.setGeometry(QtCore.QRect(10, 80, 151, 31))
+        self.class_input.setObjectName("class_input")
+        self.class_name = QtWidgets.QLabel(self.centralwidget)
+        self.class_name.setGeometry(QtCore.QRect(170, 90, 161, 16))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.class_name.setFont(font)
+        self.class_name.setObjectName("class_name")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 791, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 984, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -144,6 +158,8 @@ class Ui_MainWindow(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.class_name.setText(_translate("MainWindow", "Clase:"))
+        self.class_input.textChanged.connect(self.saveClassName)
         self.btn_input_path.clicked.connect(self.pushButton_set_path_input)
         self.btn_output_path.clicked.connect(self.pushButton_set_path_output)
         self.btn_brightness.clicked.connect(self.pushButton_brightness)
@@ -151,6 +167,11 @@ class Ui_MainWindow(object):
         self.btn_flip_left_right.clicked.connect(self.pushButton_flip_left_right)
         
         
+    def saveClassName(self):
+        self.class_name_ui = self.class_input.text()
+        self.class_name.setText('Clase: '+self.class_name_ui)
+        self.class_name.adjustSize()
+        return self.class_name_ui
         
     def pushButton_set_path_input(self):
         input_path = QFileDialog.getExistingDirectory()
@@ -172,19 +193,22 @@ class Ui_MainWindow(object):
         self.logs.append('Direccion de salida cargado correctamente')
 
     def pushButton_brightness(self):
-        temp = random_brightness(self.folder_input_path, self.folder_output_path)
+        class_name = self.class_name_ui
+        temp = random_brightness(self.folder_input_path, self.folder_output_path, class_name)
         print(temp)
         self.logs.append('------------------------------------------------------------')
         self.logs.append(temp)
     
     def pushButton_contrast(self):
-        temp = random_contrast(self.folder_input_path, self.folder_output_path)
+        class_name = self.class_name_ui
+        temp = random_contrast(self.folder_input_path, self.folder_output_path, class_name)
         print(temp)
         self.logs.append('------------------------------------------------------------')
         self.logs.append(temp)       
     
     def pushButton_flip_left_right(self):
-        temp = flip_left_right(self.folder_input_path, self.folder_output_path)
+        class_name = self.class_name_ui
+        temp = flip_left_right(self.folder_input_path, self.folder_output_path, class_name)
         print(temp)
         self.logs.append('------------------------------------------------------------')
         self.logs.append(temp) 
