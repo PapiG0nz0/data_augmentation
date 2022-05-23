@@ -12,4 +12,4 @@
 </ol>
 <p>Once inside the program you will simply need to open your folder directory where your images are located, then open your desired output folder directory, enter the name of your image and select the desired filters you want to apply to the original data set.</p>
 <p><br></p>
-<p><br></p>
+<p>Important note, this program will assign an id for the output images that goes from 0 to <strong>N&nbsp;</strong>number of images, if you desire to use a different way to identify the images I suggest you to create a script that changes the names of the images.</p>
